@@ -15,7 +15,7 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -24,32 +24,35 @@ app.use('/users', usersRouter);
 
 //路由
 app.get('/test', function (req, res) {
-  res.send('Just a test!')
+    res.send('Just a test!')
 })
 app.post('/post', function (req, res) {
-  res.send('Got a POST request')
+    res.send('Got a POST request')
 })
 app.put('/put', function (req, res) {
-  res.send('Got a PUT request at /put')
+    res.send('Got a PUT request at /put')
 })
 app.delete('/del', function (req, res) {
-  res.send('Got a DELETE request at /del')
+    res.send('Got a DELETE request at /del')
 })
 
+//静态目录别名
+app.use('/img', express.static('public/images'))
+
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use(function (req, res, next) {
+    next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(function (err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;
