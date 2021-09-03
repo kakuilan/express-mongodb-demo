@@ -1,0 +1,44 @@
+# OS X
+.DS_Store*
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+*~
+
+# ide
+.git/
+.idea/
+.project/
+.settings/
+.vscode/
+
+# npm
+node_modules
+package-lock.json
+yarn.lock
+*.gz
+
+
+# Coveralls
+coverage
+
+# Benchmarking
+benchmarks/graphs
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# SASS
+.sass-cache
+*.css.map
