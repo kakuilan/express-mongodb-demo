@@ -3,11 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose =require("mongoose");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+// 连接到你MongoDB服务器的test数据库
+mongoose.connect("mongodb://192.168.56.11:27017/test");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
